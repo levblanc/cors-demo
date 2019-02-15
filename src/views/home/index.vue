@@ -17,6 +17,9 @@
     <br />
     <button @click='withProxyReq'>With PROXY</button>
     <div>With Proxy Result: {{ withProxy }}</div>
+    <hr>
+    <button @click='login'>Login</button>
+    <div>Login: {{ isLogin }}</div>
   </div>
 </template>
 

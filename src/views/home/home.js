@@ -14,6 +14,7 @@ export default {
       getWithCors: null,
       postWithCors: null,
       withProxy: null,
+      isLogin: false,
     };
   },
   methods: {
@@ -73,5 +74,20 @@ export default {
         this.withProxy = JSON.stringify(error);
       }
     },
+    async login() {
+      try {
+        const { data } = await Vue.$ajax.post('http://localhost:8000/login', {
+          username: 'username',
+          password: '123123123',
+        }, { withCredentials: true });
+
+        this.isLogin = data.isLogin;
+      } catch (error) {
+        this.isLogin = JSON.stringify(error);
+      }
+    },
+  },
+  mounted() {
+    this.isLogin = Vue.$checkCookie();
   },
 };

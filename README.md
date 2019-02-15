@@ -25,11 +25,17 @@ nodemon server.js
 
 proxy server listens on port 8001
 
-in order for the `With PROXY` button to work properly, 
+in order for the `With PROXY` button and the CSRF test to work properly, 
 
 you will need to run the `npm run build` command first,
 
 then load the app on `http://localhost:8001`
+
+For the CSRF test:
+
+1. login in `http://localhost:8080`, cookie will be set to the browser
+2. go to `http://localhost:8001` and click the `CSRF` link
+3. refresh home page of `8080`, login status should change
 
 ```
 nodemon proxyServer.js
